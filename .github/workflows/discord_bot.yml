@@ -27,6 +27,6 @@ jobs:
         run: |
           python Discord_web/
       - name: Adicionar arquivos modificados e fazer commit
-          run: |
-            pip install GitPython
-            python count_exec.py
+        run: |
+          pip install GitPython
+          python count_exec.py
