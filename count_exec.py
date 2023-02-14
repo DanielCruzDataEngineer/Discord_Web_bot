@@ -10,3 +10,4 @@ repo = git.Repo(os.getcwd())
 # cria um commit com a mensagem informando qual comando foi executado
 commit_message = "Adicionando arquivos modificados"
 repo.index.commit(commit_message)
+repo.remotes.origin.push()
