@@ -6,6 +6,7 @@ import pandas as pd
 import time
 import os
 from dotenv import load_dotenv,find_dotenv
+import openpyxl
 load_dotenv(find_dotenv())
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -26,6 +27,20 @@ async def on_message(message):
         a = str(message.content).strip('$run')
         await message.channel.send("Contando....")
 
+        i=0
+        print(i)
+# Carregue a planilha existente
+        workbook = openpyxl.load_workbook('Baby_testes.xlsx')
+        worksheet = workbook.active
+        # Adicione alguns dados na planilha
+        worksheet['A1'] = 'Quantidade de contrações'
+        worksheet['A2'] = int(worksheet['A2'].value) + 1
+
+        # Salve a planilha atualizada
+        workbook.save('Baby_testes.xlsx')
+        os.system('git add .')
+        os.system("git commit -m \'Data\'")
+        os.system("git push")
 if __name__ == "__main__" :
     client.run(DISCORD_TOKEN)
 
