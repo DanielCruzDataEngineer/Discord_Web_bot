@@ -1,10 +1,11 @@
+import os
 import git
 
-# inicializa o repositório git
-repo = git.Repo('..\Discord_Web_bot')
+# obtém a URL do repositório a partir da variável de ambiente GITHUB_REPOSITORY
+repo_url = f"https://github.com/DanielCruzDataEngineer/Discord_Web_bot.git"
 
-# faz o add dos arquivos modificados
-repo.git.add(update=True)
+# inicializa o repositório git
+repo = git.Repo(os.getcwd())
 
 # cria um commit com a mensagem informando qual comando foi executado
 commit_message = "Adicionando arquivos modificados"
