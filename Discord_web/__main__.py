@@ -7,6 +7,7 @@ import time
 import os
 from dotenv import load_dotenv,find_dotenv
 import openpyxl
+import threading
 load_dotenv(find_dotenv())
 
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
@@ -16,6 +17,8 @@ DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
+def run_client():
+    client.run(DISCORD_TOKEN)
 
 
 @client.event
@@ -38,11 +41,15 @@ async def on_message(message):
 
         # Salve a planilha atualizada
         workbook.save('Baby_testes.xlsx')
-        os.system('git config --global user.email "danielcruz.alu.lmb@gmail.com"')
-        os.system('git config --global user.name "DanielCruzDataEngineer"')
-        os.system('git add .')
-        os.system("git commit -m \'Data\'")
-        os.system("git push")
+        os.system('python count_exec.py')
+
 if __name__ == "__main__" :
-    client.run(DISCORD_TOKEN)
+    client_thread = threading.Thread(target=run_client)
+    client_thread.start()
+
+    # aqui você pode executar outras tarefas enquanto o client.run() está em execução em segundo plano
+
+    # para aguardar o término do thread do client.run(), você pode usar o método join()
+    client_thread.join()
+
 

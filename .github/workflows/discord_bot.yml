@@ -26,6 +26,7 @@ jobs:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         run: |
           python Discord_web/
+        background : true
       - name: Adicionar arquivos modificados e fazer commit
         run: |
           pip install GitPython
