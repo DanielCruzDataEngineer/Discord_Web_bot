@@ -38,9 +38,7 @@ async def on_message(message):
 
         # Salve a planilha atualizada
         workbook.save('Baby_testes.xlsx')
-        os.system('git add .')
-        os.system("git commit -m \'Data\'")
-        os.system("git push")
+
 if __name__ == "__main__" :
     client.run(DISCORD_TOKEN)
 
