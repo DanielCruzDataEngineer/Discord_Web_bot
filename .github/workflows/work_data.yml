@@ -21,10 +21,10 @@ jobs:
         with:
           context: .
           push: true
-          tags: danielcruzr/streamlit:latest
+          tags: danielcruzr/streamlit:discord
       - name: Execute o contêiner
         run: |
-          docker run --name stream danielcruzr/streamlit:latest
+          docker run --name stream danielcruzr/streamlit:discord
       - name: IP do contêiner
         run: |
           docker inspect stream | grep IPAddress
