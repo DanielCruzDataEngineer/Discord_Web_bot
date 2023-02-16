@@ -3,7 +3,6 @@ import discord
 from discord.ext import commands, tasks
 from discord.ext.commands import Bot
 import os
-import pandas as pd
 import time
 import os
 from dotenv import load_dotenv, find_dotenv

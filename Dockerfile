@@ -1,16 +1,16 @@
-FROM python:3
-
-FROM gorialis/discord.py
+FROM python:3.7.9-slim
 
 
+COPY requirements.txt app/requirements.txt
 
-RUN mkdir -p /usr/src/bot
+#install all requirements in requirements.txt
+RUN pip install -r app/requirements.txt
 
-WORKDIR /usr/src/bot
+#Copy all files in current directory into app directory
+COPY . /web_app_v3
 
-
-
-COPY . .
+#Change Working Directory to app directory
+WORKDIR /web_app_v3
 
 
 
