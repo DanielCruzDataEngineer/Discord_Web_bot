@@ -1,26 +1,17 @@
-#Base Image to use
-FROM python:3.7.9-slim
+FROM python:3
 
-#Expose port 8080
-EXPOSE 8501
+FROM gorialis/discord.py
 
-#Optional - install git to fetch packages directly from github
-RUN apt-get update && apt-get install -y git
 
-#Copy Requirements.txt file into app directory
-COPY requirements.txt app/requirements.txt
 
-#install all requirements in requirements.txt
-RUN pip install -r app/requirements.txt
+RUN mkdir -p /usr/src/bot
 
-#Copy all files in current directory into app directory
-COPY . /web_app_v3
+WORKDIR /usr/src/bot
 
-#Change Working Directory to app directory
-WORKDIR /web_app_v3
 
-ENV PORT 8501
 
-# cmd to launch app when container is run
-CMD python v1/
+COPY . .
 
+
+
+CMD [ "python3", "discord_bot.py" ]
