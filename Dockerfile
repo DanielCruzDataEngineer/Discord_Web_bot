@@ -1,5 +1,7 @@
 FROM python:3.7.9-slim
 
+ARG MY_SECRET
+
 
 COPY requirements.txt app/requirements.txt
 
