@@ -14,4 +14,4 @@ COPY . .
 
 
 
-CMD [ "python3", "discord_bot.py" ]
+CMD [ "python3", "v1/" ]
