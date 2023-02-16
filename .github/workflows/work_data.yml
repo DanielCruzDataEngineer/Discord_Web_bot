@@ -23,7 +23,7 @@ jobs:
           push: true
           tags: danielcruzr/streamlit:discord
           build-args: |
-            MY_SECRET=${{ secrets.DISCORD_TOKEN }}
+            DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
       - name: Execute o contêiner
         run: |
           docker run --name stream danielcruzr/streamlit:discord

@@ -1,6 +1,7 @@
 FROM python:3.7.9-slim
 
-ARG MY_SECRET
+ARG DISCORD_TOKEN
+ENV DISCORD_TOKEN=$DISCORD_TOKEN
 
 
 COPY requirements.txt app/requirements.txt
