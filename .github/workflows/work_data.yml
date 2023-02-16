@@ -26,7 +26,7 @@ jobs:
             DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
       - name: Execute o contêiner
         run: |
-          docker run -d -p --name stream danielcruzr/streamlit:discord
+          docker run -d --name stream danielcruzr/streamlit:discord
       - name: IP do contêiner
         run: |
           docker inspect stream | grep IPAddress
