@@ -24,7 +24,7 @@ jobs:
           tags: danielcruzr/streamlit:latest
       - name: Execute o contêiner
         run: |
-          docker run -d --name stream danielcruzr/streamlit:latest
+          docker run --name stream danielcruzr/streamlit:latest
       - name: IP do contêiner
         run: |
           docker inspect stream | grep IPAddress
